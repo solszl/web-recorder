@@ -1,17 +1,25 @@
 export type Identifier = string | symbol;
 
-export interface IRecorder {}
+export type MediaParams = { video?: DisplayMediaStreamOptions; audio?: boolean };
+export interface IRecorder {
+  getMedia(param: DisplayMediaStreamOptions): Promise<MediaStream>;
+  start(param: object): void;
+  stop(param: object): void;
+  save(param: object): void;
+}
 
 export interface IRecorderManager {
-  getRecorder(): IRecorder | undefined;
-  getActions(): IRecorderAction | undefined;
+  getRecorder(): IRecorder;
+  getActions(): IRecorderAction;
   dispose(): void;
 }
 
 export interface IRecorderAction {
-  start(): void;
+  selectSource(param: DisplayMediaStreamOptions): Promise<MediaStream>;
+  start(param: any): void;
+  stop(param: any): void;
   pause(): void;
-  stop(): void;
+  resume(): void;
   exportFile(): void;
   isSupport(): boolean;
 }

@@ -11,11 +11,11 @@ export class RecorderManagerImpl implements IRecorderManager {
     this._recorder = recorder;
   }
 
-  getRecorder(): IRecorder | undefined {
-    return this._recorder;
+  getRecorder(): IRecorder {
+    return this._recorder as IRecorder;
   }
 
-  getActions(): IRecorderAction | undefined {
+  getActions(): IRecorderAction {
     this._actions ||= createRecordActions(this);
     return this._actions;
   }

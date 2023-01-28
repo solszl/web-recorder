@@ -1,4 +1,4 @@
-import { RecorderImpl } from "./classes/RecorderImple";
+import { RecorderImpl } from "./classes/RecorderImpl";
 import { RecorderManagerImpl } from "./classes/RecorderManagerImpl";
 import { IRecorderManager } from "./interfaces";
 export function createRecorderManager({ audio = false }): IRecorderManager {
